@@ -25,11 +25,14 @@ class SingleBook extends Component {
     const { selectedBook } = this.state
     return (
       <Card
-        onClick={this.toggleBook}
         className={selectedBook ? "border-blue" : "border-none"}
         style={{ width: "12rem" }}
       >
-        <Card.Img variant="top" src={this.props.book.img} />
+        <Card.Img
+          variant="top"
+          src={this.props.book.img}
+          onClick={this.toggleBook}
+        />
         <Card.Body>
           <h5>{this.props.book.title}</h5>
           {this.state.selectedBook && (
