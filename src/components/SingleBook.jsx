@@ -1,19 +1,8 @@
 import { Card } from "react-bootstrap"
 import { Component } from "react"
+import CommentsList from "./CommentsList"
+import CommentArea from "./CommentArea"
 import "../App.css"
-// import romance from "../data/romance.json"
-
-// const SingleBook = () => {
-//   return romance.slice(0, 1).map((book) => (
-//     <Card style={{ width: "18rem" }}>
-//       <Card.Img variant="top" src={book.img} />
-//       <Card.Body>
-//         <Card.Title>{book.title}</Card.Title>
-//         <Card.Text>This book is from the {book.category} section.</Card.Text>
-//       </Card.Body>
-//     </Card>
-//   ))
-// }
 
 class SingleBook extends Component {
   state = {
@@ -22,7 +11,7 @@ class SingleBook extends Component {
 
   toggleBook = (e) => {
     this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))
-    // this.setState((current) => !current)
+
     console.log("clicked")
     console.log(e.target)
   }
@@ -37,8 +26,13 @@ class SingleBook extends Component {
       >
         <Card.Img variant="top" src={this.props.book.img} />
         <Card.Body>
-          <Card.Title>{this.props.book.title}</Card.Title>
+          <h5>{this.props.book.title}</h5>
           <Card.Text> {this.props.book.category} </Card.Text>
+          {this.state.SelectedBook && (
+            <div>
+              <CommentArea bookId={this.props.book.asin} />
+            </div>
+          )}
         </Card.Body>
       </Card>
     )
