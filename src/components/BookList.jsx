@@ -8,15 +8,6 @@ class BookList extends Component {
     searchQuery: ""
   }
 
-  onChangeHandler = (value, fieldToSet) => {
-    this.setState({
-      ListOfBooks: {
-        ...this.state.ListOfBooks,
-        [fieldToSet]: value
-      }
-    })
-  }
-
   render() {
     return (
       <div>
