@@ -1,5 +1,6 @@
 import { Component } from "react"
 import { ListGroup } from "react-bootstrap"
+import AddComment from "./AddComment"
 
 class CommentArea extends Component {
   state = {
@@ -33,6 +34,8 @@ class CommentArea extends Component {
     console.log(this.props.bookId)
     return (
       <div>
+        <hr></hr>
+        <h5>Comments</h5>
         <ListGroup>
           {this.state.comments.map((comment, _id) => (
             <ListGroup.Item key={_id}>{comment.comment}</ListGroup.Item>

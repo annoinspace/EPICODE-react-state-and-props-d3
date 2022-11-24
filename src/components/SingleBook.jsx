@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap"
 import { Component } from "react"
 
 import CommentArea from "./CommentArea"
+import AddComment from "./AddComment"
 import "../App.css"
 
 class SingleBook extends Component {
@@ -10,10 +11,16 @@ class SingleBook extends Component {
   }
 
   toggleBook = (e) => {
-    this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))
+    this.setState({
+      selectedBook: true
+    })
 
     console.log("clicked")
     console.log(e.target)
+  }
+
+  staySelected = (e) => {
+    this.setState((prevState) => ({ selectedBook: prevState.selectedBook }))
   }
 
   render() {
@@ -27,10 +34,13 @@ class SingleBook extends Component {
         <Card.Img variant="top" src={this.props.book.img} />
         <Card.Body>
           <h5>{this.props.book.title}</h5>
-          <Card.Text> {this.props.book.category} </Card.Text>
           {this.state.selectedBook && (
             <div>
-              <CommentArea bookId={this.props.book.asin} />
+              <CommentArea
+                bookId={this.props.book.asin}
+                onClick={this.staySelected}
+              />
+              <AddComment bookId={this.props.book.asin} />
             </div>
           )}
         </Card.Body>
