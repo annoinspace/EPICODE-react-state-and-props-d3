@@ -1,6 +1,6 @@
 import { Card } from "react-bootstrap"
 import { Component } from "react"
-import CommentsList from "./CommentsList"
+
 import CommentArea from "./CommentArea"
 import "../App.css"
 
@@ -28,7 +28,7 @@ class SingleBook extends Component {
         <Card.Body>
           <h5>{this.props.book.title}</h5>
           <Card.Text> {this.props.book.category} </Card.Text>
-          {this.state.SelectedBook && (
+          {this.state.selectedBook && (
             <div>
               <CommentArea bookId={this.props.book.asin} />
             </div>
