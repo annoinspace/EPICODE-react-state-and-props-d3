@@ -9,8 +9,8 @@ import BookList from "./components/BookList.jsx"
 function App() {
   return (
     <div className="App">
-      <WarningSign text="YOU ARE IN DANGER!!!!!!" />
-      <MyBadge color="success" text="a gorgeous badge" />
+      {/* <WarningSign text="YOU ARE IN DANGER!!!!!!" />
+      <MyBadge color="success" text="a gorgeous badge" /> */}
       {/* <SingleBook book={romance[0]} /> */}
       <BookList ListOfBooks={romance} />
     </div>

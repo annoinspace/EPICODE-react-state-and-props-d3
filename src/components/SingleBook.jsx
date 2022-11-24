@@ -11,9 +11,7 @@ class SingleBook extends Component {
   }
 
   toggleBook = (e) => {
-    this.setState({
-      selectedBook: true
-    })
+    this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))
 
     console.log("clicked")
     console.log(e.target)

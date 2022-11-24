@@ -1,6 +1,5 @@
 import { Component } from "react"
 import { ListGroup } from "react-bootstrap"
-import AddComment from "./AddComment"
 
 class CommentArea extends Component {
   state = {
