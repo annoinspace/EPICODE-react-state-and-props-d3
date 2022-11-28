@@ -26,7 +26,7 @@ class SingleBook extends Component {
     return (
       <Card
         className={selectedBook ? "border-blue" : "border-none"}
-        style={{ width: "12rem" }}
+        style={{ width: "10rem" }}
       >
         <Card.Img
           variant="top"
@@ -34,7 +34,9 @@ class SingleBook extends Component {
           onClick={this.toggleBook}
         />
         <Card.Body>
-          <h5>{this.props.book.title}</h5>
+          <p>
+            <strong>{this.props.book.title}</strong>
+          </p>
           {this.state.selectedBook && (
             <div>
               <CommentArea

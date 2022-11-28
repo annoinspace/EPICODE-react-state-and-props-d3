@@ -12,7 +12,9 @@ function App() {
       {/* <WarningSign text="YOU ARE IN DANGER!!!!!!" />
       <MyBadge color="success" text="a gorgeous badge" /> */}
       {/* <SingleBook book={romance[0]} /> */}
-      <BookList ListOfBooks={romance} />
+      <div>
+        <BookList ListOfBooks={romance} />
+      </div>
     </div>
   )
 }

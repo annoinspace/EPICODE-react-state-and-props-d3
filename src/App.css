@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  display: flex;
+  flex-direction: row;
 }
 
 .App-logo {
@@ -43,4 +45,20 @@
 
 .border-none {
   border: 1px solid black;
+}
+
+.bookListWrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.books {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 70%;
+  margin: 20px;
+}
+
+.bookcard {
+  margin: 5px;
 }

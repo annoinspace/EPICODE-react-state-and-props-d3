@@ -22,17 +22,18 @@ class BookList extends Component {
           <Button variant="outline-primary">Search</Button>
         </Form>
 
-        <Container>
-          <Row>
+        <div className="bookListWrapper">
+          <div className="books">
             {this.props.ListOfBooks.filter((book) =>
               book.title.toLowerCase().includes(this.state.searchQuery)
             ).map((book) => (
-              <Col key={book.asin}>
+              <div className="bookcard" key={book.asin}>
                 <SingleBook book={book} />
-              </Col>
+              </div>
             ))}
-          </Row>
-        </Container>
+          </div>
+          <div className="commentSection">comment section</div>
+        </div>
       </div>
     )
   }

@@ -54,7 +54,7 @@ class AddComment extends Component {
   render() {
     return (
       <div>
-        <h2>Post Your Comment here!</h2>
+        <h5>Post Your Comment here!</h5>
         <Form onSubmit={this.onSubmitHandler}>
           <Form.Group>
             <Form.Label>Your Comment</Form.Label>
