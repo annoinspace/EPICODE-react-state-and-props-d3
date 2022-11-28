@@ -6,7 +6,7 @@ class CommentArea extends Component {
     comments: []
   }
 
-  componentDidUpdate = (prevProps, prevState) => {
+  componentDidUpdate = (prevProps) => {
     console.log("prevProps", prevProps)
     console.log("currentProps", this.props)
 
