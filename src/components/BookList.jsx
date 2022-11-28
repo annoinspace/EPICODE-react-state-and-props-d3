@@ -49,10 +49,10 @@ class BookList extends Component {
             {this.state.selectedBook && (
               <div>
                 <CommentArea
-                  bookId={this.props.book.asin}
-                  onClick={this.staySelected}
+                  asin={this.state.selectedBook}
+                  // onClick={this.staySelected}
                 />
-                <AddComment asin={this.state.selectedBook} />
+                <AddComment asin={this.state.selectedBook.asin} />
               </div>
             )}
           </div>

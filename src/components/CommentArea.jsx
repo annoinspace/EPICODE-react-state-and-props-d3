@@ -19,7 +19,7 @@ class CommentArea extends Component {
   fetchComments = async () => {
     try {
       let response = await fetch(
-        `https://striveschool-api.herokuapp.com/api/comments/${this.props.bookId}`,
+        `https://striveschool-api.herokuapp.com/api/comments/${this.props.asin}`,
         {
           headers: {
             method: "GET",
@@ -41,7 +41,7 @@ class CommentArea extends Component {
     this.fetchComments()
   }
   render() {
-    console.log(this.props.bookId)
+    console.log(this.props.asin)
     return (
       <div>
         <hr></hr>
