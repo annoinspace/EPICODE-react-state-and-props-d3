@@ -20,8 +20,8 @@ class SingleBook extends Component {
     return (
       <Card
         onClick={(e) => this.props.changeSelectedBook(this.props.book.asin)}
-        // className={selectedBook ? "border-blue" : "border-none"}
-        style={{ width: "10rem" }}
+        // className={this.state.selectedBook ? "border-blue" : "border-none"}
+        style={{ width: "15rem" }}
       >
         <Card.Img
           variant="top"

@@ -11,6 +11,17 @@ class BookList extends Component {
     selectedBook: false
   }
 
+  toggleBook = (e) => {
+    this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))
+
+    console.log("clicked")
+    console.log(e.target)
+  }
+
+  staySelected = (e) => {
+    this.setState((prevState) => ({ selectedBook: prevState.selectedBook }))
+  }
+
   render() {
     return (
       <div>

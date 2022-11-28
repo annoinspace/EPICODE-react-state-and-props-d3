@@ -6,7 +6,7 @@ class AddComment extends Component {
     usercomment: {
       comment: "",
       rate: 1,
-      elementId: this.props.bookId
+      elementId: this.props.asin
     }
   }
 
@@ -23,7 +23,7 @@ class AddComment extends Component {
     e.preventDefault()
     try {
       let response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/comments/",
+        `https://striveschool-api.herokuapp.com/api/comments/`,
         {
           method: "POST",
           body: JSON.stringify(this.state.usercomment),
@@ -41,7 +41,7 @@ class AddComment extends Component {
           usercomment: {
             comment: "",
             rate: 1,
-            elementId: this.props.bookId
+            elementId: this.props.asin
           }
         })
       } else {

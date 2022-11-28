@@ -8,7 +8,7 @@ class CommentArea extends Component {
 
   componentDidUpdate = (prevProps, prevState) => {
     console.log("prevProps", prevProps)
-    console.log("currentProps", this.Props)
+    console.log("currentProps", this.props)
 
     if (prevProps.aisn !== this.props.asin) {
       console.log("time to fetch the new comments")
