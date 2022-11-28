@@ -1,11 +1,14 @@
-import SingleBook from "./SingleBook"
 import { Component } from "react"
-import { Container, Row, Col, Form, Button } from "react-bootstrap"
+import { Form, Button } from "react-bootstrap"
+import SingleBook from "./SingleBook"
+import CommentArea from "./CommentArea"
+import AddComment from "./AddComment"
 // import React, { useState } from "react"
 
 class BookList extends Component {
   state = {
-    searchQuery: ""
+    searchQuery: "",
+    selectedBook: false
   }
 
   render() {
@@ -28,11 +31,31 @@ class BookList extends Component {
               book.title.toLowerCase().includes(this.state.searchQuery)
             ).map((book) => (
               <div className="bookcard" key={book.asin}>
-                <SingleBook book={book} />
+                <SingleBook
+                  book={book}
+                  // adding props to the book
+                  selectedBook={this.state.selectedBook}
+                  changeSelectedBook={(asin) =>
+                    this.setState({
+                      selectedBook: asin
+                    })
+                  }
+                />
               </div>
             ))}
           </div>
-          <div className="commentSection">comment section</div>
+          <div className="commentSection">
+            <h2>comment section</h2>
+            {this.state.selectedBook && (
+              <div>
+                <CommentArea
+                  bookId={this.props.book.asin}
+                  onClick={this.staySelected}
+                />
+                <AddComment asin={this.state.selectedBook} />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     )

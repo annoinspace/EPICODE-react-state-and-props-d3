@@ -6,6 +6,16 @@ class CommentArea extends Component {
     comments: []
   }
 
+  componentDidUpdate = (prevProps, prevState) => {
+    console.log("prevProps", prevProps)
+    console.log("currentProps", this.Props)
+
+    if (prevProps.aisn !== this.props.asin) {
+      console.log("time to fetch the new comments")
+      this.fetchComments()
+    }
+  }
+
   fetchComments = async () => {
     try {
       let response = await fetch(
@@ -26,6 +36,7 @@ class CommentArea extends Component {
       console.log(err.message)
     }
   }
+
   componentDidMount() {
     this.fetchComments()
   }

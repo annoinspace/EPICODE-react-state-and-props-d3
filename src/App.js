@@ -1,22 +1,20 @@
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./App.css"
-// import WarningSign from "./components/WarningSign"
-// import MyBadge from "./components/MyBadge"
-// import SingleBook from "./components/SingleBook"
+import { Component } from "react"
+
 import romance from "./data/romance.json"
 import BookList from "./components/BookList.jsx"
 
-function App() {
-  return (
-    <div className="App">
-      {/* <WarningSign text="YOU ARE IN DANGER!!!!!!" />
-      <MyBadge color="success" text="a gorgeous badge" /> */}
-      {/* <SingleBook book={romance[0]} /> */}
-      <div>
-        <BookList ListOfBooks={romance} />
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <div>
+          <BookList ListOfBooks={romance} />
+        </div>
       </div>
-    </div>
-  )
+    )
+  }
 }
 
 export default App
