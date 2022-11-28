@@ -8,7 +8,7 @@ import AddComment from "./AddComment"
 class BookList extends Component {
   state = {
     searchQuery: "",
-    selectedBook: false
+    selectedBook: null
   }
 
   toggleBook = (e) => {
