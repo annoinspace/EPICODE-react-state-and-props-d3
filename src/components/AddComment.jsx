@@ -75,12 +75,7 @@ const AddComment = ({ asin }) => {
             required
             value={usercomment.comment}
             onChange={(e) =>
-              this.setState({
-                usercomment: {
-                  ...usercomment,
-                  comment: e.target.value
-                }
-              })
+              setUsercomment({ ...usercomment, comment: e.target.value })
             }
           />
         </Form.Group>
@@ -90,12 +85,7 @@ const AddComment = ({ asin }) => {
             as="select"
             value={usercomment.rate}
             onChange={(e) =>
-              this.setState({
-                usercomment: {
-                  ...usercomment,
-                  rate: e.target.value
-                }
-              })
+              setUsercomment({ ...usercomment, rate: e.target.value })
             }
           >
             <option>1</option>
