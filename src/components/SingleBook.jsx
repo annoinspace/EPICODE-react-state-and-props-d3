@@ -1,9 +1,9 @@
 import { Card } from "react-bootstrap"
-import { Component } from "react"
+// import { Component } from "react"
 
 import "../App.css"
 
-class SingleBook extends Component {
+const SingleBook = ({ book, changeSelectedBook, selectedBook }) => {
   // toggleBook = (e) => {
   //   this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))
 
@@ -15,27 +15,25 @@ class SingleBook extends Component {
   //   this.setState((prevState) => ({ selectedBook: prevState.selectedBook }))
   // }
 
-  render() {
-    // const { selectedBook } = this.state
-    return (
-      <Card
-        onClick={(e) => this.props.changeSelectedBook(this.props.book.asin)}
-        // className={this.state.selectedBook ? "border-blue" : "border-none"}
-        style={{ width: "15rem" }}
-      >
-        <Card.Img
-          variant="top"
-          src={this.props.book.img}
-          onClick={this.toggleBook}
-        />
-        <Card.Body>
-          <p>
-            <strong>{this.props.book.title}</strong>
-          </p>
-        </Card.Body>
-      </Card>
-    )
-  }
+  // const { selectedBook } = this.state
+  return (
+    <Card
+      onClick={(e) => changeSelectedBook(book.asin)}
+      // className={this.state.selectedBook ? "border-blue" : "border-none"}
+      style={{ width: "15rem" }}
+    >
+      <Card.Img
+        variant="top"
+        src={book.img}
+        //  onClick={this.toggleBook}
+      />
+      <Card.Body>
+        <p>
+          <strong>{book.title}</strong>
+        </p>
+      </Card.Body>
+    </Card>
+  )
 }
 
 export default SingleBook
