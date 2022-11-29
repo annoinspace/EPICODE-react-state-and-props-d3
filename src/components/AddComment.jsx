@@ -6,7 +6,7 @@ class AddComment extends Component {
     usercomment: {
       comment: "",
       rate: 1,
-      elementId: this.props.asin
+      elementId: null
     }
   }
 
@@ -18,6 +18,16 @@ class AddComment extends Component {
       }
     })
   }
+  componentDidUpdate(prevProps) {
+    if (prevProps.asin !== this.props.asin) {
+      this.setState({
+        usercomment: {
+          ...this.state.comment,
+          elementId: this.props.asin
+        }
+      })
+    }
+  }
 
   onSubmitHandler = async (e) => {
     e.preventDefault()
@@ -26,7 +36,10 @@ class AddComment extends Component {
         `https://striveschool-api.herokuapp.com/api/comments/`,
         {
           method: "POST",
-          body: JSON.stringify(this.state.usercomment),
+          body: JSON.stringify({
+            ...this.state.usercomment,
+            elementId: this.props.asin
+          }),
           headers: {
             "Content-Type": "application/json",
             Authorization:
