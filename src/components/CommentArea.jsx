@@ -1,12 +1,15 @@
-import { Component } from "react"
+// import { Component } from "react"
+import { useEffect, useState } from "react"
 import { ListGroup } from "react-bootstrap"
 
-class CommentArea extends Component {
-  state = {
-    comments: []
-  }
+const CommentArea = () => {
+  // state = {
+  //   comments: []
+  // }
 
-  fetchComments = async () => {
+  const [comments, setComments] = useState([])
+
+  const fetchComments = async () => {
     try {
       let response = await fetch(
         `https://striveschool-api.herokuapp.com/api/comments/${this.props.asin}`,
@@ -27,33 +30,36 @@ class CommentArea extends Component {
     }
   }
 
-  componentDidMount() {
-    this.fetchComments()
-  }
+  // componentDidMount() {
+  //   this.fetchComments()
+  // }
 
-  componentDidUpdate = (prevProps) => {
-    console.log("prevProps", prevProps)
-    console.log("currentProps", this.props)
+  useEffect(() => {
+    console.log("Book finished mounting")
+    fetchComments()
+  }, [])
 
-    if (prevProps.aisn !== this.props.asin) {
-      console.log("time to fetch the new comments")
-      this.fetchComments()
-    }
-  }
-  render() {
-    console.log(this.props.asin)
-    return (
-      <div>
-        <hr></hr>
-        <h5>Comments</h5>
-        <ListGroup>
-          {this.state.comments.map((comment, _id) => (
-            <ListGroup.Item key={_id}>{comment.comment}</ListGroup.Item>
-          ))}
-        </ListGroup>
-      </div>
-    )
-  }
+  // componentDidUpdate = (prevProps, prevState) => {
+  //   if (prevProps.asin !== this.props.asin) {
+  //     this.fetchComments()
+  //   }
+  // }
+  useEffect(() => {
+    fetchComments()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [this.props.asin])
+
+  return (
+    <div>
+      <hr></hr>
+      <h5>Comments</h5>
+      <ListGroup>
+        {this.state.comments.map((comment, _id) => (
+          <ListGroup.Item key={_id}>{comment.comment}</ListGroup.Item>
+        ))}
+      </ListGroup>
+    </div>
+  )
 }
 
 export default CommentArea
