@@ -2,7 +2,7 @@ import { Card } from "react-bootstrap"
 // import { Component } from "react"
 
 import "../App.css"
-
+//const {book, } = props
 const SingleBook = ({ book, changeSelectedBook, selectedBook }) => {
   // toggleBook = (e) => {
   //   this.setState((prevState) => ({ selectedBook: !prevState.selectedBook }))

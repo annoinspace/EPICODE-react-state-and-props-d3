@@ -2,13 +2,6 @@ import { useState, useEffect } from "react"
 import { Form, Button } from "react-bootstrap"
 
 const AddComment = ({ asin }) => {
-  // state = {
-  //   usercomment: {
-  //     comment: "",
-  //     rate: 1,
-  //     elementId: null
-  //   }
-  // }
   const [usercomment, setUsercomment] = useState({
     comment: "",
     rate: 1,
